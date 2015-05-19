@@ -1,0 +1,168 @@
+import java.util.Scanner;
+
+public class TextBasedGame
+{
+	private String bb = "";
+	public void Baby()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("BABY SIMULATOR 3.0\n\n\n");
+		System.out.println("Are you a boy or a girl?");
+		System.out.println("1. Boy \n2. Girl");
+		int gender = keyboard.nextInt();
+		while(gender != 1 && gender != 2)
+		{
+			System.out.println(wrongInput());
+			gender = keyboard.nextInt();
+		}
+
+		if(gender == 1)
+		{
+			System.out.println("\nARE YOU READY TO BE A FATHER?");
+		}
+
+		else if(gender == 2)
+		{
+			System.out.println("\nARE YOU READY TO BE A MOTHER?");
+		}
+
+		System.out.println("1. yes \n2. no");
+		int response = keyboard.nextInt();
+		while(response != 1 && response != 2)
+		{
+			System.out.println(wrongInput());
+			response = keyboard.nextInt();
+		}
+
+		if(response == 1)
+		{
+			System.out.println("Be prepared to change some diapers.");
+		}
+
+		else if(response == 2)
+		{
+			System.out.println("\nYou don't really have a choice at this point.");
+		}
+		System.out.println("\n\n You have been blessed with a \n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.......\n");
+		System.out.println(babyGender());
+
+		System.out.println("What would you like to name your baby?");
+		bb = makeName();
+		System.out.println("\nWelcome to the world baby " + bb + "!");
+		System.out.println("\nHere is where your journey begins.");
+		System.out.println("\n\nPress any number to continue.");
+		int x = keyboard.nextInt();
+		System.out.println("\n\n\n");
+	}
+
+	public void House()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("This is your house. Not too shabby but no mansion either.\nBut hey, all your money is going to the baby anyways");
+		System.out.println("\n\n\n\n\n\n\n\n\n");
+		System.out.println("Your baby is sleeping, for now.\nWould you like to check on " + bb + " ?");
+		System.out.println("1. yes\n2. no");
+		int response = keyboard.nextInt();
+		while(response != 1 && response != 2)
+		{
+			System.out.println(wrongInput());
+			response = keyboard.nextInt();
+		}
+		while(response != 1)
+		{
+			System.out.println("ARE YOU NEGLECTING YOUR CHILD? Check on your baby.");
+			System.out.println("1. yes\n2. no");
+			response = keyboard.nextInt();
+		}
+		if(response == 1)
+		{
+			System.out.println("Ok. You slowly peek open the door... and your baby starts crying! Shouldn't have done that.");
+		}
+
+	}
+
+	public String wrongInput()
+	{
+		String wrong = "\nPlease enter a number that corresponds to a selection above.";
+		return wrong;
+	}
+
+/*	public String list()
+	{
+		String list = "Go to:\n1. The Kitchen\n2. Your Bedroom\n3. The Living Room\n4. The Store\n5. The Baby's Room";
+		return list;
+	}*/
+
+	public String babyGender()
+	{
+		int babyg = (int)(Math.random() * 2) + 1;
+		String a = "";
+		if(babyg == 1)
+		{
+			a = "A baby BOY!";
+		}
+
+		else
+		{
+			a = "A baby GIRL! (I'm so sorry.)";
+		}
+		return a;
+	}
+	public String makeName()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String bb = ""; //name of Baby
+		bb = keyboard.nextLine();
+		return bb;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*	public String heShe();
+	{
+		String heshe = "";
+		if(baby.equals("boy"))
+		{
+			heshe = "he";
+		}
+
+		else if(baby.equals("girl"))
+		{
+			heshe = "she";
+		}
+
+		return heshe;
+	}
+*/
+
+	public static void main(String[] args)
+	{
+		TextBasedGame app = new TextBasedGame();
+		app.Baby();
+		app.House();
+	//	app.heShe();
+		app.wrongInput();
+		app.makeName();
+	//	app.babyName();
+	//	app.list();
+	}
+}
